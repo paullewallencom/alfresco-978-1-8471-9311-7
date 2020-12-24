@@ -1,0 +1,48 @@
+<alfresco-config>
+	<config>
+		<client>
+			<!-- the login page the client will use -->
+			<login-page>/jsp/extension/login.jsp</login-page>
+		</client>
+	</config>
+
+	<!-- show related documents association on doc property sheet -->
+	<config evaluator="node-type" condition="sc:doc">
+		<property-sheet>
+			<show-association name="sc:relatedDocuments" />
+		</property-sheet>
+	</config>
+
+	<!--  add someco types to add content list -->
+	<config evaluator="string-compare" condition="Content Wizards">
+		<content-types>
+			<type name="sc:doc" />
+			<type name="sc:whitepaper" />
+		</content-types>
+	</config>
+
+	<config evaluator="string-compare" condition="Action Wizards">
+
+		<!-- The list of types shown in the is-subtype condition -->
+		<subtypes>
+			<type name="sc:doc" />
+			<type name="sc:whitepaper" />
+		</subtypes>		
+
+		<!-- The list of content and/or folder types shown in the specialise-type action -->
+		<specialise-types>
+			<type name="sc:doc" />
+			<type name="sc:whitepaper" />
+		</specialise-types>		
+	</config>	
+	
+	<config evaluator="string-compare" condition="Advanced Search">
+		<advanced-search>
+			<content-types>
+				<type name="sc:doc" />
+				<type name="sc:whitepaper" />
+			</content-types>
+		</advanced-search>
+	</config>
+	
+</alfresco-config>
